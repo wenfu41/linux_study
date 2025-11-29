@@ -38,24 +38,49 @@ class CommandCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.secondary.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      command.category,
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.secondary,
-                        fontSize: 12,
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.secondary.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          command.category,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary,
+                            fontSize: 12,
+                          ),
+                        ),
                       ),
-                    ),
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: _getDifficultyColor(
+                            command.difficulty,
+                          ).withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          command.difficulty,
+                          style: TextStyle(
+                            color: _getDifficultyColor(command.difficulty),
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -89,5 +114,18 @@ class CommandCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Color _getDifficultyColor(String difficulty) {
+    switch (difficulty) {
+      case '初级':
+        return Colors.green;
+      case '中级':
+        return Colors.orange;
+      case '高级':
+        return Colors.red;
+      default:
+        return Colors.grey;
+    }
   }
 }
