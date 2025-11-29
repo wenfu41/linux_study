@@ -1,0 +1,244 @@
+[
+    {
+        "question": "用于列出当前目录下文件的命令是？",
+        "options": [
+            "ls",
+            "cd",
+            "pwd",
+            "mkdir"
+        ],
+        "correctIndex": 0,
+        "explanation": "ls (list) 命令用于列出目录内容。"
+    },
+    {
+        "question": "如何切换到上一级目录？",
+        "options": [
+            "cd .",
+            "cd ..",
+            "cd ~",
+            "cd /"
+        ],
+        "correctIndex": 1,
+        "explanation": ".. 代表上一级目录，. 代表当前目录，~ 代表用户主目录，/ 代表根目录。"
+    },
+    {
+        "question": "用于删除文件的命令是？",
+        "options": [
+            "rm",
+            "mv",
+            "cp",
+            "touch"
+        ],
+        "correctIndex": 0,
+        "explanation": "rm (remove) 用于删除文件。mv 是移动，cp 是复制，touch 是创建空文件。"
+    },
+    {
+        "question": "查看当前工作目录路径的命令是？",
+        "options": [
+            "whoami",
+            "ls",
+            "pwd",
+            "path"
+        ],
+        "correctIndex": 2,
+        "explanation": "pwd (print working directory) 显示当前工作目录的绝对路径。"
+    },
+    {
+        "question": "用于查看文件内容的命令是？",
+        "options": [
+            "ls",
+            "cat",
+            "echo",
+            "ps"
+        ],
+        "correctIndex": 1,
+        "explanation": "cat 命令用于连接文件并打印到标准输出设备上，常用于查看文件内容。"
+    },
+    {
+        "question": "如何强制终止一个进程？",
+        "options": [
+            "stop",
+            "end",
+            "kill -9",
+            "exit"
+        ],
+        "correctIndex": 2,
+        "explanation": "kill 命令用于发送信号给进程，-9 参数表示发送 SIGKILL 信号，强制终止进程。"
+    },
+    {
+        "question": "用于修改文件权限的命令是？",
+        "options": [
+            "chown",
+            "chmod",
+            "chgrp",
+            "umask"
+        ],
+        "correctIndex": 1,
+        "explanation": "chmod (change mode) 用于修改文件或目录的访问权限。"
+    },
+    {
+        "question": "以下哪个命令可以显示网络接口信息？",
+        "options": [
+            "ping",
+            "netstat",
+            "ifconfig",
+            "route"
+        ],
+        "correctIndex": 2,
+        "explanation": "ifconfig (interface configuration) 用于配置和显示 Linux 内核中网络接口的网络参数。"
+    },
+    {
+        "question": "Shell 脚本中，如何定义一个变量？",
+        "options": [
+            "var name = 'value'",
+            "name = 'value'",
+            "name='value'",
+            "$name='value'"
+        ],
+        "correctIndex": 2,
+        "explanation": "Shell 变量定义时，变量名和等号之间不能有空格，且不需要 $ 符号。"
+    },
+    {
+        "question": "Shell 脚本中，如何输出变量的值？",
+        "options": [
+            "echo name",
+            "echo $name",
+            "print name",
+            "printf name"
+        ],
+        "correctIndex": 1,
+        "explanation": "使用 $ 符号加上变量名来获取变量的值，例如 echo $name。"
+    },
+    {
+        "question": "Shell 脚本的第一行通常是什么？",
+        "options": [
+            "#include <stdio.h>",
+            "#!/bin/bash",
+            "// bash script",
+            "start"
+        ],
+        "correctIndex": 1,
+        "explanation": "#!/bin/bash 是 Shebang，告诉系统使用哪个解释器来执行该脚本。"
+    },
+    {
+        "question": "在 Shell 脚本中，如何获取第一个参数？",
+        "options": [
+            "$0",
+            "$1",
+            "$arg1",
+            "$first"
+        ],
+        "correctIndex": 1,
+        "explanation": "$1 代表第一个参数，$0 代表脚本文件名。"
+    },
+    {
+        "question": "Shell 脚本中，if 语句结束的关键字是？",
+        "options": [
+            "end",
+            "endif",
+            "fi",
+            "done"
+        ],
+        "correctIndex": 2,
+        "explanation": "if 语句块以 fi (if 的反写) 结束。"
+    },
+    {
+        "question": "Shell 脚本中，for 循环结束的关键字是？",
+        "options": [
+            "end",
+            "endfor",
+            "done",
+            "fi"
+        ],
+        "correctIndex": 2,
+        "explanation": "for 和 while 循环都以 done 结束。"
+    },
+    {
+        "question": "Shell 脚本中，获取传递参数个数的变量是？",
+        "options": [
+            "$#",
+            "$*",
+            "$@",
+            "$?"
+        ],
+        "correctIndex": 0,
+        "explanation": "$# 表示传递给脚本或函数的参数个数。"
+    },
+    {
+        "question": "Shell 脚本中，获取上一个命令退出状态的变量是？",
+        "options": [
+            "$#",
+            "$$",
+            "$?",
+            "$!"
+        ],
+        "correctIndex": 2,
+        "explanation": "$? 表示上个命令的退出状态，0 表示成功，非 0 表示失败。"
+    },
+    {
+        "question": "如何将命令输出追加到文件中？",
+        "options": [
+            ">",
+            ">>",
+            "<",
+            "<<"
+        ],
+        "correctIndex": 1,
+        "explanation": ">> 用于将输出追加到文件末尾，而 > 会覆盖文件内容。"
+    },
+    {
+        "question": "测试文件是否存在的条件运算符是？",
+        "options": [
+            "-f",
+            "-d",
+            "-e",
+            "-s"
+        ],
+        "correctIndex": 2,
+        "explanation": "-e (exist) 用于检测文件或目录是否存在。"
+    },
+    {
+        "question": "测试是否为目录的条件运算符是？",
+        "options": [
+            "-f",
+            "-d",
+            "-e",
+            "-r"
+        ],
+        "correctIndex": 1,
+        "explanation": "-d (directory) 用于检测是否为目录。"
+    },
+    {
+        "question": "Shell 脚本中，case 语句结束的关键字是？",
+        "options": [
+            "end",
+            "break",
+            "esac",
+            "done"
+        ],
+        "correctIndex": 2,
+        "explanation": "case 语句以 esac (case 的反写) 结束。"
+    },
+    {
+        "question": "如何获取字符串变量 str 的长度？",
+        "options": [
+            "length(str)",
+            "${#str}",
+            "${str.length}",
+            "$len(str)"
+        ],
+        "correctIndex": 1,
+        "explanation": "${#str} 用于获取字符串 str 的长度。"
+    },
+    {
+        "question": "数值比较中，表示“等于”的运算符是？",
+        "options": [
+            "=",
+            "==",
+            "-eq",
+            "eq"
+        ],
+        "correctIndex": 2,
+        "explanation": "在 [ ] 中进行数值比较时，应使用 -eq (equal)。= 和 == 用于字符串比较。"
+    }
+]

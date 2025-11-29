@@ -1,0 +1,142 @@
+[
+    {
+        "title": "Shell 脚本简介",
+        "content": "Shell 脚本（Shell Script）是一种为 Shell 编写的脚本程序。\n\n业界所说的 Shell 通常都是指 Shell 脚本，但读者朋友要知道，Shell 和 Shell Script 是两个不同的概念。\n\nShell 是一个命令行解释器，它为用户提供了一个向 Linux 内核发送请求以便运行程序的界面系统级程序，用户可以用 Shell 来启动、挂起、停止甚至是编写一些程序。",
+        "code": "#!/bin/bash\necho \"Hello World !\""
+    },
+    {
+        "title": "注释",
+        "content": "Shell 脚本中的注释以 # 开头，会被解释器忽略。\n\n**单行注释**：以 # 开头\n\n**多行注释**：使用 Here Document 的变体\n:<<EOF\n注释内容...\nEOF\n\n或者使用 :<<'COMMENT' ... COMMENT",
+        "code": "# 这是一个单行注释\n\n:<<EOF\n这是\n多行\n注释\nEOF\n\necho \"Hello World\""
+    },
+    {
+        "title": "变量",
+        "content": "定义变量时，变量名不加美元符号（$），如：\n`your_name=\"runoob.com\"`\n\n注意，变量名和等号之间不能有空格。\n\n使用一个定义过的变量，只要在变量名前面加美元符号即可，如：\n`echo $your_name`\n`echo ${your_name}`\n\n变量名外面的花括号是可选的，加不加都行，加花括号是为了帮助解释器识别变量的边界。",
+        "code": "your_name=\"tom\"\necho $your_name\necho \"My name is ${your_name}\""
+    },
+    {
+        "title": "只读变量",
+        "content": "使用 readonly 命令可以将变量定义为只读变量，只读变量的值不能被改变。",
+        "code": "myUrl=\"https://www.google.com\"\nreadonly myUrl\n# myUrl=\"https://www.runoob.com\"  # 这行会报错"
+    },
+    {
+        "title": "删除变量",
+        "content": "使用 unset 命令可以删除变量。语法：\n`unset variable_name`\n\n变量被删除后不能再次使用。unset 命令不能删除只读变量。",
+        "code": "myUrl=\"https://www.runoob.com\"\nunset myUrl\necho $myUrl  # 不会有任何输出"
+    },
+    {
+        "title": "特殊变量",
+        "content": "Shell 中有一些特殊变量，具有特殊含义：\n\n- `$0`: 当前脚本的文件名\n- `$n`: 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。\n- `$#`: 传递给脚本或函数的参数个数。\n- `$*`: 传递给脚本或函数的所有参数。\n- `$@`: 传递给脚本或函数的所有参数。\n- `$?`: 上个命令的退出状态，或函数的返回值。\n- `$$`: 当前 Shell 进程 ID。For Shell 脚本，就是这些脚本所在的进程 ID。",
+        "code": "echo \"参数个数为: $#\"\necho \"所有参数: $*\"\necho \"脚本运行的当前进程ID号: $$\""
+    },
+    {
+        "title": "字符串操作",
+        "content": "Shell 提供了多种字符串操作方法：\n\n**1. 获取字符串长度**\n`${#string}`\n\n**2. 提取子字符串**\n`${string:1:4}` (从第2个字符开始，截取4个字符)\n\n**3. 查找子字符串**\n`expr index \"$string\" io`\n\n**4. 字符串拼接**\n直接将两个字符串放在一起即可。",
+        "code": "string=\"runoob is a great site\"\necho ${#string} # 输出 22\necho ${string:1:4} # 输出 unoo\n\nstr1=\"Hello\"\nstr2=\"World\"\nstr3=$str1\" \"$str2\necho $str3  # Hello World"
+    },
+    {
+        "title": "数组",
+        "content": "Bash 支持一维数组（不支持多维数组），并且没有限定数组的大小。\n\n定义数组：\n`array_name=(value0 value1 value2 value3)`\n\n读取数组：\n`${array_name[index]}`\n\n获取数组所有元素：\n`${array_name[@]}`\n\n获取数组长度：\n`${#array_name[@]}`",
+        "code": "my_array=(A B \"C\" D)\necho \"第一个元素为: ${my_array[0]}\"\necho \"所有元素为: ${my_array[@]}\"\necho \"数组长度为: ${#my_array[@]}\""
+    },
+    {
+        "title": "算术运算",
+        "content": "原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。\n\n**方法1：使用 expr**\n注意：表达式和运算符之间要有空格，例如 2+2 是不对的，必须写成 2 + 2。\n\n**方法2：使用 $(( ))**\n这是更现代的方法。\n\n**方法3：使用 let**",
+        "code": "# 使用 expr\nval=`expr 2 + 2`\necho \"两数之和为 : $val\"\n\n# 使用 $(( ))\nval=$((2 + 2))\necho \"两数之和为 : $val\"\n\n# 使用 let\nlet \"val = 2 + 2\"\necho \"两数之和为 : $val\""
+    },
+    {
+        "title": "条件测试与中括号详解",
+        "content": "Shell 脚本中常用的条件测试命令是 `test` 或 `[`。\n\n**1. 单中括号 `[ ]`**\n这是 `test` 命令的简写形式。注意 `[` 后和 `]` 前必须有空格。\n\n**2. 双中括号 `[[ ]]`**\n这是 Bash 的扩展，支持更强大的字符串比较和模式匹配（如正则）。\n\n**3. 双小括号 `(( ))`**\n用于整数运算和比较。",
+        "code": "# 单中括号\nif [ $a -eq $b ]; then ... fi\n\n# 双中括号 (支持 &&, ||)\nif [[ $a -eq 1 && $b -eq 2 ]]; then ... fi\n\n# 双小括号 (C语言风格)\nif (( a > b )); then ... fi"
+    },
+    {
+        "title": "数值比较符号",
+        "content": "在 `[ ]` 或 `test` 中进行数值比较时，不能使用 `>`, `<` 等符号（它们会被视为重定向），必须使用以下操作符：\n\n- `-eq`: 等于 (equal)\n- `-ne`: 不等于 (not equal)\n- `-gt`: 大于 (greater than)\n- `-lt`: 小于 (less than)\n- `-ge`: 大于等于 (greater or equal)\n- `-le`: 小于等于 (less or equal)",
+        "code": "a=10\nb=20\n\nif [ $a -eq $b ]; then\n   echo \"$a -eq $b : a 等于 b\"\nelse\n   echo \"$a -eq $b: a 不等于 b\"\nfi\n\nif [ $a -lt $b ]; then\n   echo \"$a -lt $b: a 小于 b\"\nfi"
+    },
+    {
+        "title": "字符串判断逻辑",
+        "content": "字符串比较常用的操作符：\n\n- `=`: 检测两个字符串是否相等\n- `!=`: 检测两个字符串是否不相等\n- `-z`: 检测字符串长度是否为0 (zero)\n- `-n`: 检测字符串长度是否不为0 (nonzero)\n- `$`: 检测字符串是否为空",
+        "code": "a=\"abc\"\nb=\"efg\"\n\nif [ $a = $b ]; then\n   echo \"$a = $b : a 等于 b\"\nelse\n   echo \"$a = $b: a 不等于 b\"\nfi\n\nif [ -z $a ]; then\n   echo \"-z $a : 字符串长度为 0\"\nelse\n   echo \"-z $a : 字符串长度不为 0\"\nfi"
+    },
+    {
+        "title": "逻辑运算符号",
+        "content": "Shell 支持以下逻辑运算符：\n\n**1. 逻辑非 `!`**\n\n**2. 逻辑或 `-o` (or)**\n在 `[[ ]]` 中使用 `||`。\n\n**3. 逻辑与 `-a` (and)**\n在 `[[ ]]` 中使用 `&&`。",
+        "code": "a=10\nb=20\n\nif [ $a -lt 100 -a $b -gt 15 ]; then\n   echo \"$a 小于 100 且 $b 大于 15 : 返回 true\"\nfi\n\nif [ $a -lt 100 -o $b -gt 100 ]; then\n   echo \"$a 小于 100 或 $b 大于 100 : 返回 true\"\nfi"
+    },
+    {
+        "title": "文件测试运算符",
+        "content": "用于检测 Unix 文件的各种属性：\n\n- `-d file`: 检测文件是否是目录\n- `-f file`: 检测文件是否是普通文件\n- `-r file`: 检测文件是否可读\n- `-w file`: 检测文件是否可写\n- `-x file`: 检测文件是否可执行\n- `-s file`: 检测文件是否为空（文件大小是否大于0）\n- `-e file`: 检测文件（包括目录）是否存在\n- `-L file`: 检测文件是否是符号链接",
+        "code": "file=\"/var/www/runoob/test.sh\"\nif [ -r $file ]; then\n   echo \"文件可读\"\nelse\n   echo \"文件不可读\"\nfi\n\nif [ -e $file ]; then\n   echo \"文件存在\"\nelse\n   echo \"文件不存在\"\nfi"
+    },
+    {
+        "title": "if else 流程控制",
+        "content": "if 语句语法格式：\n\nif condition\nthen\n    command1 \n    command2\n    ...\n    commandN \nfi\n\n写成一行（适用于终端命令提示符）：\n`if [ $(ps -ef | grep -c \"ssh\") -gt 1 ]; then echo \"true\"; fi`",
+        "code": "if [ $a == $b ]\nthen\n   echo \"a 等于 b\"\nelif [ $a -gt $b ]\nthen\n   echo \"a 大于 b\"\nelse\n   echo \"a 小于 b\"\nfi"
+    },
+    {
+        "title": "case 多选择语句",
+        "content": "case 语句为多选择语句。可以用 case 语句匹配一个值与一个模式，如果匹配成功，执行相匹配的命令。\n\ncase 值 in\n模式1)\n    command1\n    ;;\n模式2)\n    command2\n    ;;\nesac\n\n每个模式必须以右括号结束，双分号 ;; 表示命令序列结束。",
+        "code": "echo '输入 1 到 4 之间的数字:'\nread aNum\ncase $aNum in\n    1)  echo '你选择了 1'\n    ;;\n    2)  echo '你选择了 2'\n    ;;\n    3)  echo '你选择了 3'\n    ;;\n    4)  echo '你选择了 4'\n    ;;\n    *)  echo '你没有输入 1 到 4 之间的数字'\n    ;;\nesac"
+    },
+    {
+        "title": "for 循环",
+        "content": "for 循环一般格式为：\n\nfor var in item1 item2 ... itemN\ndo\n    command1\n    command2\n    ...\n    commandN\ndone\n\n也可以使用 C 语言风格的 for 循环：\nfor (( i=0; i<10; i++ ))\ndo\n    echo $i\ndone",
+        "code": "for loop in 1 2 3 4 5\ndo\n    echo \"The value is: $loop\"\ndone\n\n# C 语言风格\nfor (( i=1; i<=5; i++ ))\ndo\n    echo \"Number: $i\"\ndone"
+    },
+    {
+        "title": "while 循环",
+        "content": "while 循环用于不断执行一系列命令，也用于从输入文件中读取数据。命令通常为测试条件。\n\n语法：\nwhile condition\ndo\n    command\ndone",
+        "code": "#!/bin/bash\nint=1\nwhile(( $int<=5 ))\ndo\n    echo $int\n    let \"int++\"\ndone"
+    },
+    {
+        "title": "until 循环",
+        "content": "until 循环执行一系列命令直至条件为 true 时停止。\n\nuntil 循环与 while 循环在处理方式上刚好相反。\n\n语法：\nuntil condition\ndo\n    command\ndone",
+        "code": "a=0\nuntil [ ! $a -lt 5 ]\ndo\n   echo $a\n   a=`expr $a + 1`\ndone"
+    },
+    {
+        "title": "跳出循环 (break/continue)",
+        "content": "**break** 命令允许跳出所有循环（终止执行后面的所有循环）。\n\n**continue** 命令仅跳出当前循环。",
+        "code": "while : \ndo\n    echo -n \"输入 1 到 5 之间的数字:\"\n    read aNum\n    case $aNum in\n        1|2|3|4|5) echo \"你输入的数字为 $aNum!\"\n        ;;\n        *) echo \"你输入的数字不是 1 到 5 之间的! 游戏结束\"\n            break\n        ;;\n    esac\ndone"
+    },
+    {
+        "title": "函数定义与调用",
+        "content": "linux shell 可以用户定义函数，然后在shell脚本中可以随便调用。\n\n函数定义格式：\nfunction_name () {\n    commands\n    return value\n}\n\n函数返回值，可以显式增加return语句；如果不加，会将最后一条命令运行结果作为返回值。\n\n调用函数只需要写函数名即可。",
+        "code": "demoFun(){\n    echo \"这是我的第一个 shell 函数!\"\n}\nprintHello(){\n    echo \"Hello World!\"\n}\ndemoFun\nprintHello"
+    },
+    {
+        "title": "函数参数",
+        "content": "在Shell中，调用函数时可以向其传递参数。在函数体内部，通过 $n 的形式来获取参数的值，例如，$1表示第一个参数，$2表示第二个参数...\n\n注意，$10 不能获取第十个参数，获取第十个参数需要${10}。当n>=10时，需要使用${n}来获取参数。",
+        "code": "funWithParam(){\n    echo \"第一个参数为 $1 !\"\n    echo \"第二个参数为 $2 !\"\n    echo \"参数总数有 $# 个!\"\n}\nfunWithParam 1 2 3 4 5"
+    },
+    {
+        "title": "输入/输出重定向",
+        "content": "重定向命令列表：\n\n- `command > file`: 将输出重定向到 file（覆盖）。\n- `command < file`: 将输入重定向到 file。\n- `command >> file`: 将输出以追加的方式重定向到 file。\n- `n > file`: 将文件描述符为 n 的文件重定向到 file。\n- `n >> file`: 将文件描述符为 n 的文件以追加的方式重定向到 file。\n- `2>&1`: 将标准错误输出重定向到标准输出。\n- `&> file`: 将标准输出和标准错误都重定向到 file。",
+        "code": "who > users\ncat users\n\n# 禁止标准错误输出\ncommand 2> /dev/null\n\n# 同时重定向标准输出和标准错误\ncommand &> output.txt"
+    },
+    {
+        "title": "管道 (Pipe)",
+        "content": "管道符 | 用于将一个命令的输出作为另一个命令的输入。\n\n语法：\ncommand1 | command2\n\n管道可以连接多个命令。",
+        "code": "# 统计文件行数\ncat file.txt | wc -l\n\n# 查找进程并过滤\nps -ef | grep nginx\n\n# 多个管道连接\ncat /etc/passwd | grep /bin/bash | wc -l"
+    },
+    {
+        "title": "读取用户输入 (read)",
+        "content": "`read` 命令用于从标准输入读取一行，并将其赋值给变量。\n\n常用选项：\n- `-p`: 提示信息\n- `-t`: 超时时间（秒）\n- `-n`: 读取指定字符数\n- `-s`: 静默模式（不显示输入，常用于密码）",
+        "code": "# 基本用法\necho \"What is your name?\"\nread PERSON\necho \"Hello, $PERSON\"\n\n# 使用 -p 选项\nread -p \"Enter your age: \" age\necho \"You are $age years old\"\n\n# 读取密码\nread -s -p \"Enter password: \" password"
+    },
+    {
+        "title": "命令替换",
+        "content": "命令替换是指Shell可以先执行命令，将输出结果暂时保存，在适当的地方输出。\n\n有两种方式：\n1. 使用反引号 `command`\n2. 使用 $(command) （推荐）",
+        "code": "# 使用反引号\nDATE=`date`\necho \"Date is $DATE\"\n\n# 使用 $()\nDATE=$(date)\necho \"Date is $DATE\"\n\n# 嵌套使用\nFILES=$(ls $(pwd))"
+    },
+    {
+        "title": "Here Document",
+        "content": "Here Document 是 Shell 中的一种特殊的重定向方式，用来将输入重定向到一个交互式 Shell 脚本或程序。\n\n基本形式：\ncommand << delimiter\n    document\ndelimiter\n\n作用是将两个 delimiter 之间的内容(document) 作为输入传递给 command。",
+        "code": "cat << EOF\n欢迎来到\nLinux学习\nEOF\n\n# 用于多行字符串\ncat > file.txt << EOF\nLine 1\nLine 2\nLine 3\nEOF"
+    },
+    {
+        "title": "Shell 文件包含",
+        "content": "Shell 也可以包含外部脚本。这样可以很方便的封装一些公用的代码作为一个独立的文件。\n\n语法：\n. filename   # 注意点号(.)和文件名中间有一空格\n或\nsource filename",
+        "code": "# test1.sh 内容\nurl=\"https://www.runoob.com\"\n\n# test2.sh 内容\n. ./test1.sh\necho \"url: $url\""
+    }
+]

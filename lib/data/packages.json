@@ -1,0 +1,170 @@
+[
+    {
+        "name": "vim",
+        "description": "高度可配置的文本编辑器",
+        "fullDescription": "Vim 是从 vi 发展出来的一个文本编辑器。代码补全、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。",
+        "installCommand": "sudo apt install vim",
+        "category": "编辑器"
+    },
+    {
+        "name": "nano",
+        "description": "简单易用的文本编辑器",
+        "fullDescription": "Nano 是一个字符终端的文本编辑器，比 Vi/Vim 要简单得多，比较适合 Linux 初学者使用。",
+        "installCommand": "sudo apt install nano",
+        "category": "编辑器"
+    },
+    {
+        "name": "git",
+        "description": "分布式版本控制系统",
+        "fullDescription": "Git 是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。",
+        "installCommand": "sudo apt install git",
+        "category": "开发工具"
+    },
+    {
+        "name": "gcc",
+        "description": "GNU 编译器套件",
+        "fullDescription": "GCC (GNU Compiler Collection) 是 GNU 项目的编译器套件，支持 C, C++, Objective-C, Fortran, Ada, Go 和 D 等语言。",
+        "installCommand": "sudo apt install build-essential",
+        "category": "开发工具"
+    },
+    {
+        "name": "make",
+        "description": "自动化构建工具",
+        "fullDescription": "Make 工具通过一个名为 Makefile 的文件来描述如何构建应用程序，自动决定哪些文件需要重新编译。",
+        "installCommand": "sudo apt install make",
+        "category": "开发工具"
+    },
+    {
+        "name": "python3",
+        "description": "Python 3 解释器",
+        "fullDescription": "Python 是一种解释型、面向对象、动态数据类型的高级程序设计语言。",
+        "installCommand": "sudo apt install python3",
+        "category": "开发工具"
+    },
+    {
+        "name": "nodejs",
+        "description": "JavaScript 运行时环境",
+        "fullDescription": "Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时。",
+        "installCommand": "sudo apt install nodejs",
+        "category": "开发工具"
+    },
+    {
+        "name": "curl",
+        "description": "命令行工具和库，用于传输数据",
+        "fullDescription": "curl 是一个利用 URL 语法在命令行下工作的文件传输工具，1997年首次发行。它支持文件上传和下载，所以是综合传输工具。",
+        "installCommand": "sudo apt install curl",
+        "category": "网络工具"
+    },
+    {
+        "name": "wget",
+        "description": "从网络上自动下载文件的工具",
+        "fullDescription": "wget 是一个从网络上自动下载文件的自由工具，支持 HTTP，HTTPS 和 FTP 协议，可以使用 HTTP 代理。",
+        "installCommand": "sudo apt install wget",
+        "category": "网络工具"
+    },
+    {
+        "name": "nmap",
+        "description": "网络探测和安全审核工具",
+        "fullDescription": "Nmap ("Network Mapper") 是一款用于网络发现和安全审计的网络安全工具。",
+        "installCommand": "sudo apt install nmap",
+        "category": "网络工具"
+    },
+    {
+        "name": "tcpdump",
+        "description": "命令行数据包分析工具",
+        "fullDescription": "tcpdump 是一个运行在命令行下的嗅探工具。它允许用户拦截和显示发送或收到过网络连接到该计算机的 TCP/IP 和其他数据包。",
+        "installCommand": "sudo apt install tcpdump",
+        "category": "网络工具"
+    },
+    {
+        "name": "nginx",
+        "description": "高性能的 HTTP 和反向代理 web 服务器",
+        "fullDescription": "Nginx 是一款轻量级的 Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。",
+        "installCommand": "sudo apt install nginx",
+        "category": "服务器"
+    },
+    {
+        "name": "apache2",
+        "description": "Apache HTTP 服务器",
+        "fullDescription": "Apache HTTP Server 是世界使用排名第一的 Web 服务器软件。",
+        "installCommand": "sudo apt install apache2",
+        "category": "服务器"
+    },
+    {
+        "name": "mysql-server",
+        "description": "MySQL 数据库服务器",
+        "fullDescription": "MySQL 是最流行的关系型数据库管理系统之一。",
+        "installCommand": "sudo apt install mysql-server",
+        "category": "服务器"
+    },
+    {
+        "name": "redis-server",
+        "description": "Redis 内存数据结构存储",
+        "fullDescription": "Redis 是一个开源的使用 ANSI C 语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value 数据库。",
+        "installCommand": "sudo apt install redis-server",
+        "category": "服务器"
+    },
+    {
+        "name": "docker",
+        "description": "开源的应用容器引擎",
+        "fullDescription": "Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上。",
+        "installCommand": "sudo apt install docker.io",
+        "category": "容器化"
+    },
+    {
+        "name": "htop",
+        "description": "交互式的进程查看器",
+        "fullDescription": "htop 是一个 Linux 下的交互式的进程浏览器，可以用来替换Linux下的top命令。",
+        "installCommand": "sudo apt install htop",
+        "category": "系统监控"
+    },
+    {
+        "name": "neofetch",
+        "description": "命令行系统信息工具",
+        "fullDescription": "Neofetch 是一个命令行系统信息工具，它用 Bash 3.2+ 编写。Neofetch 以美观的方式显示有关您的操作系统、软件和硬件的信息。",
+        "installCommand": "sudo apt install neofetch",
+        "category": "系统监控"
+    },
+    {
+        "name": "tmux",
+        "description": "终端复用器",
+        "fullDescription": "tmux 是一个终端复用器（terminal multiplexer），类 Unix 操作系统用户可以通过 tmux 在一个终端窗口中访问多个终端会话。",
+        "installCommand": "sudo apt install tmux",
+        "category": "工具"
+    },
+    {
+        "name": "jq",
+        "description": "轻量级且灵活的命令行 JSON 处理器",
+        "fullDescription": "jq 就像 sed 处理 JSON 数据一样 - 你可以使用它来切片、过滤、映射和转换结构化数据。",
+        "installCommand": "sudo apt install jq",
+        "category": "工具"
+    },
+    {
+        "name": "tree",
+        "description": "以树状图列出目录的内容",
+        "fullDescription": "Tree 命令以树状图列出目录的内容。",
+        "installCommand": "sudo apt install tree",
+        "category": "工具"
+    },
+    {
+        "name": "ffmpeg",
+        "description": "音视频处理工具",
+        "fullDescription": "FFmpeg 是一套可以用来记录、转换数字音频、视频，并能将其转化为流的开源计算机程序。",
+        "installCommand": "sudo apt install ffmpeg",
+        "category": "多媒体"
+    },
+    {
+        "name": "ufw",
+        "description": "简单的防火墙配置工具",
+        "fullDescription": "UFW (Uncomplicated Firewall) 是一个为 iptables 提供更用户友好的前端的程序。",
+        "installCommand": "sudo apt install ufw",
+        "category": "安全"
+    },
+    {
+        "name": "openssh-server",
+        "description": "OpenSSH 服务器",
+        "fullDescription": "OpenSSH 是 SSH 协议的免费开源实现。它提供了加密的通信会话。",
+        "installCommand": "sudo apt install openssh-server",
+        "category": "安全"
+    }
+]
